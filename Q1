@@ -1,0 +1,51 @@
+def do_arithmetic(x,y,op='+'):
+    '''
+    1) Please copy and pass your codes for do_arithmetic() function below.
+    2) Do required changes in function definition for the arguments if needed.
+    '''
+
+    if op == 'add' or op == '+' or op is None:
+      return float(x + y)
+    elif op == 'subtract' or op == '-':
+      return float(x - y)
+    elif op == 'multiply' or op == '*':
+      return float(x * y)
+    elif op == 'divide' or op == '/':
+      if y != 0:
+        return float(x / y)
+      elif y == 0:
+        print("Division by 0!")
+        return
+    else:
+      print("Unknown operation")
+      return None
+
+def sum_of_digits(digits):
+    '''
+    1) Please copy and pass your codes for sum_of_digits() function below.
+    2) Do required changes in function definition for the arguments if needed.
+    '''
+    lt = list(digits) 
+    string = []
+    digit = []
+    sum = 0
+    count = 0
+    for i in range(len(lt)):
+        if lt[i].isdigit(): 
+            sum += int(lt[i]) 
+            count += i
+            digit.append(int(lt[i]))
+        else:
+            string.append(lt[i]) 
+    if count == 0 and string != []:
+        print("The sum of digits operation could not detect a digit!")
+        print("The returned input letters are:" + str(string))
+    elif count == 0 and string == []:
+        print("Empty string entered!")
+    else:  
+        sum_digit = str()
+        for s in digit:
+          sum_digit += str(s) + '+'
+        print('The sum of digits operation performs' , sum_digit[:-1] ) 
+        print("The extracted non-digits are:" + str(string))
+    return sum
